@@ -1,0 +1,51 @@
+\section{Análisis de los Resultados}
+
+En esta sección se mostrarán los resultados detallados que se obtuvieron durante las pruebas realizadas en este proyecto. Los resultados son plasmados por actividades realizadas para una mayor compresión.\\
+
+\subsection {Resultado del trabajo previo}
+
+Los resultados preliminares que se han obtenido son el funcionamiento correcto de la red Can Bus, además de la verificación del conector de enlace de datos en conjunto con el protocolo de comunicación J1850 VPW, el cual indica la combinación de pines, sin embargo, el escáner EML327 con el cual se trabajó solamente puede detectar información sobre el Sistema de Tracción, debido a que la mayoría de los vehículos cuentan con características muy parecidas en el sistema de tracción, sin embargo, el sistema de confort depende de cada vehículo.\\
+
+El sistema de confort del vehículo Sentra 2006 XLS es un sistema descentralizado lo cual indica que existen diferentes módulos para el sistema de confort, cada módulo se encarga de actividades en específico. Por lo cual seguir con esta linea de investigación requeriria de muchos recursos no disponibles al momento, es por esto que se optó por reajustar la linea de investigación a otro tipo de vehículos.
+
+
+
+\subsection {Aplicación móvil}
+
+Se realizaron pruebas de comunicación entre la aplicación móvil y la tarjeta programable, la conexión se encuentra estable durante todo el proceso, sin embargo, tiene un límite de distancia para enviar y recibir los paquetes no mayor a 10 metros, después de dicha distancia la aplicación envía un mensaje de error de conexión.\\
+
+Durante su funcionamiento en caso de ser cerrada la aplicación de forma inesperada conlleva a tener errores de comunicación la siguiente vez que se desea conectar debido a que el dispositivo bluetooth se queda con la conexión anterior, así que se tiene que esperar un par de minutos para que el dispositivo funcione de manera correcta.\\
+
+La arquitectura Modelo Vista Presentador permite modificar de una manera sencilla la aplicación en temas de interfaces para el usuario, reglas de negocio o conexiones a base de datos.
+
+Parte de la aplicación esta enfocada a recolectar datos en forma de un historial, este historial tiene la finalidad de crear patrones de usabilidad en la aplicación permitiendo generar comandos automaticos para mejorar la experiencia del usuario.
+
+La aplicación cuenta con una base de datos local para el acceso sin la necesidad de conexión a internet, aunque cuando se tiene acceso envia las bitacoras de actividades a un servicio web que almacena la información en una base de datos remota, con la finalidad de proponer comandos automatizados para mejorar la aplicación y detectar patrones de los usuarios.
+
+\subsection{Comunicación}
+
+Las pruebas que se realizaron de comunicación han sido exitosas cuando el dispositivo móvil está a menos de 10 metros de la tarjeta programable, este tipo de comunicación permite la conexión punto a punto, lo cual evita que más de un dispositivo móvil se conecte y así evitar ordenes no deseadas.\\
+
+En caso de que exista algún bloqueo o falla en la comunicación por los diferentes factores posibles, la tarjeta electrónica tiene un botón de reinicio, en donde permite que la comunicación se vuelva a iniciar de manera normal.\\
+
+La comunicación es bidireccional debido a que el dispositivo móvil envía los datos hacia la tarjeta programable, y la tarjeta programable envia una respuesta, sin embargo, la tarjeta electrónica es unidireccional hacia los actuadores debido a que no verifica fisicamente la actividad, unicamente envia las señal a los relevadores, pero estos no responen a la tarjeta electrónica, por lo cual en caso de un fallo con algun actuador o relevador la tarjeta electrónica no puede detectar este detalle. No obstante el caso con el sensor de oxido de nitrogeno es un apartado diferente, debido a que la comunicación con el sensor si es bidireccional.\\
+
+\subsection{Tarjeta electrónica}
+
+Se realizaron pruebas de comunicación recibiendo las variables del dispositivo móvil, estas resultaron de manera correcta la tarjeta programable recibe la comunicación e interpreta los parámetros, después activa los pines según sea la condición seleccionada.\\
+
+Parte de las actividades que no realiza la tarjeta electrónica es la comprobación del funcionamiento, cuando existe un problema con algun actuador el sistema no reconoce la falla automaticamente.
+
+\subsection{Circuito de potencia}
+
+El circuito de potencia que se realizó permite activar o desactivar el relevador de manera correcta, este circuito se realizó N veces dependiendo de los diferentes actuadores que se manipularon. Sin embargo, tiene la misma problematica que la tarjeta electrónica y el medio de comunicación, carece de una verificación fisica del funcionamiento del actuador.\\
+
+\subsection{Actuadores y sensores}
+
+Para analizar el comportamiento del sensor se colocó dentro de un mofle y se encendió el vehículo para que emitiera los gases por el mofle y con la ayuda del puerto serial se pudo observar los datos obtenidos del sensor.
+
+Por parte de los actuadores, se instalaron debidamente en el vehículo, sin embargo los actuadores no envian señales de respuesta, por lo cual en caso de una falla no existe un sensor que auxilie al usuario mencionandole el problema.
+
+
+
+
